@@ -4,7 +4,7 @@
 
 Ты просыпаешься в криокапсуле на станции «Кассиопея-7». Экипажа нет, кислород заканчивается, а бортовой ИИ по имени ЭХО очень хочет помочь. Вопрос в том, можно ли ему верить.
 
-### ▶️ [Играть](https://YOUR_GITHUB.github.io/last-signal/)
+### ▶️ [Играть](https://mmmaksmog-commits.github.io/last-signal/)
 
 ---
 
@@ -49,7 +49,7 @@ medbay: {
 ## Запуск локально
 
 ```bash
-git clone https://github.com/YOUR_GITHUB/last-signal.git
+git clone https://github.com/mmmaksmog-commits/last-signal.git
 cd last-signal
 python3 -m http.server 8000
 ```
