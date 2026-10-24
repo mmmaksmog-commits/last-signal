@@ -1,0 +1,10 @@
+{
+  "name": "Последний сигнал",
+  "short_name": "Сигнал",
+  "description": "Текстовый sci-fi хоррор в браузере",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#050b07",
+  "theme_color": "#050b07",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

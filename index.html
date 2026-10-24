@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Последний сигнал</title>
+  <meta name="description" content="Текстовый sci-fi хоррор в браузере: заброшенная станция, подозрительный ИИ и пять концовок.">
+  <meta name="theme-color" content="#050b07">
+  <meta property="og:title" content="Последний сигнал">
+  <meta property="og:description" content="Ты просыпаешься один на станции «Кассиопея-7». Бортовой ИИ ЭХО хочет помочь. Наверное.">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="crt" aria-hidden="true"></div>
+
+  <!-- Титульный экран -->
+  <section id="title" class="title" hidden>
+    <p class="title__boot">KASSIOPEIA-7 // ECHO OS v3.1 // ПОДКЛЮЧЕНИЕ...</p>
+    <h1 class="title__name glitch" data-text="ПОСЛЕДНИЙ СИГНАЛ">ПОСЛЕДНИЙ СИГНАЛ</h1>
+    <p class="title__tagline">Ты просыпаешься один. Бортовой ИИ хочет помочь. Наверное.</p>
+    <nav class="title__menu">
+      <button class="btn btn--primary" id="continueBtn" data-action="continue" hidden>Продолжить</button>
+      <button class="btn" data-action="new">Новая игра</button>
+      <button class="btn" data-action="endings">Концовки</button>
+      <button class="btn" data-action="sound">Звук: вкл</button>
+    </nav>
+    <p class="title__foot">Нажимай на варианты или вводи команды · 5 концовок · ~10 минут</p>
+  </section>
+
+  <!-- Игра -->
+  <section id="game" class="game" hidden>
+    <header class="hud">
+      <span class="hud__station">КАССИОПЕЯ-7</span>
+      <div class="o2" role="meter" aria-label="Кислород">
+        <span class="o2__label">O₂</span>
+        <div class="o2__bar"><div class="o2__fill" id="o2fill"></div></div>
+        <span class="o2__val" id="o2val">60%</span>
+      </div>
+      <button class="hud__menu" data-action="menu" aria-label="Меню">☰</button>
+    </header>
+
+    <div id="log" class="log" aria-live="polite"></div>
+
+    <div class="controls">
+      <div id="choices" class="choices"></div>
+      <form id="cmd" class="cmd" autocomplete="off" hidden>
+        <label for="cmdInput" class="cmd__prompt">&gt;</label>
+        <input id="cmdInput" class="cmd__input" enterkeyhint="send" spellcheck="false" placeholder="номер, текст или help">
+      </form>
+      <div id="inv" class="inv"></div>
+    </div>
+  </section>
+
+  <!-- Меню -->
+  <div id="menu" class="overlay" hidden>
+    <div class="panel">
+      <h2 class="panel__title">ПАУЗА</h2>
+      <button class="btn btn--primary" data-action="close">Продолжить</button>
+      <button class="btn" data-action="endings">Концовки</button>
+      <button class="btn" data-action="sound">Звук: вкл</button>
+      <button class="btn" data-action="new">Начать заново</button>
+      <button class="btn" data-action="title">Главное меню</button>
+    </div>
+  </div>
+
+  <!-- Концовки -->
+  <div id="endings" class="overlay" hidden>
+    <div class="panel">
+      <h2 class="panel__title">КОНЦОВКИ <span class="endings__count"></span></h2>
+      <ol class="endings__list"></ol>
+      <button class="btn btn--primary" data-action="close">Закрыть</button>
+    </div>
+  </div>
+
+  <!-- Взлом -->
+  <div id="hack" class="overlay" hidden>
+    <div class="panel hack">
+      <h2 class="panel__title">ВЗЛОМ ПАНЕЛИ</h2>
+      <p class="hack__rules">Код — 4 разные цифры. <b>●</b> на месте, <b>○</b> есть в коде.</p>
+      <p class="hack__hint"></p>
+      <ol class="hack__history"></ol>
+      <div class="hack__slots"></div>
+      <p class="hack__status"></p>
+      <div class="hack__pad">
+        <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button>
+        <button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button>
+        <button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button>
+        <button data-key="back" aria-label="Стереть">⌫</button><button data-key="0">0</button>
+        <button data-key="enter" class="is-enter">ВВОД</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
